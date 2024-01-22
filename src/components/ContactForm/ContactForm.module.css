@@ -11,12 +11,20 @@
 
 .field {
   margin: 0 auto;
-  margin-bottom: 15px;
 }
 
 .btn {
   width: 200px;
   margin: 0 auto;
+  cursor: pointer;
 
   border-radius: 5px;
+}
+
+.div.error {
+  color: #cf0000;
+}
+
+.div {
+  margin-bottom: 15px;
 }
