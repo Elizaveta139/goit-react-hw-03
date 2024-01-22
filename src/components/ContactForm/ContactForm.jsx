@@ -5,31 +5,36 @@ import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-const FeedbackSchema = Yup.object().shape({
+const validationSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
-  number: Yup.number().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
+  number: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
 });
 
 const initialValues = { id: '', name: '', number: '' };
 
-export default function ContactForm() {
+export default function ContactForm({ addContact }) {
   const nameFieldId = useId();
   const numberFieldId = useId();
 
   function handleSubmit(values, actions) {
     const idContact = nanoid(5);
 
-    const contact = {
+    const newContact = {
       id: idContact,
       name: values.name,
       number: values.number,
     };
-    console.log('contact', contact);
+
+    addContact(newContact);
     actions.resetForm();
   }
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={FeedbackSchema}>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validationSchema={validationSchema}
+    >
       <Form className={css.form}>
         <div className={css.div}>
           <label htmlFor={nameFieldId}>Name</label>
