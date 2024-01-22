@@ -1,0 +1,20 @@
+.inputWrap {
+  margin-bottom: 50px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  transition: font-weight 150ms ease-in-out;
+}
+
+.label:focus-within {
+  font-weight: 600;
+}
+
+input {
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+}

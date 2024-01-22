@@ -1,0 +1,22 @@
+.wrap {
+  width: 400px;
+  height: 90px;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoContacts {
+}
+
+.btn {
+  height: 40px;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 7px;
+}
