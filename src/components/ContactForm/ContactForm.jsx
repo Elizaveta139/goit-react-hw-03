@@ -1,5 +1,5 @@
 import css from './ContactForm.module.css';
-import { IoMdPersonAdd } from 'react-icons/io';
+import { IoIosContact, IoIosCall, IoMdPersonAdd } from 'react-icons/io';
 import { nanoid } from 'nanoid';
 import { useId } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -37,13 +37,19 @@ export default function ContactForm({ addContact }) {
     >
       <Form className={css.form}>
         <div className={css.div}>
-          <label htmlFor={nameFieldId}>Name</label>
+          <label htmlFor={nameFieldId} className={css.label}>
+            <IoIosContact size="24" />
+            Name
+          </label>
           <Field className={css.field} type="text" name="name" id={nameFieldId} />
           <ErrorMessage className={css.error} name="name" component="span" />
         </div>
 
         <div className={css.div}>
-          <label htmlFor={numberFieldId}>Number</label>
+          <label htmlFor={numberFieldId} className={css.label}>
+            <IoIosCall size="24" />
+            Number
+          </label>
           <Field className={css.field} type="tel" name="number" id={numberFieldId} />
           <ErrorMessage className={css.error} name="number" component="span" />
         </div>
