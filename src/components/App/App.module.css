@@ -6,6 +6,11 @@
 }
 
 .title {
+  font-size: 40px;
   font-weight: 800;
-  margin-bottom: 50px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  -webkit-text-stroke: 1px #ffffff;
+  text-stroke: 1px #ffffff;
 }

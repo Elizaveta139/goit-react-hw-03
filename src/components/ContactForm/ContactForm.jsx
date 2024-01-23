@@ -39,17 +39,17 @@ export default function ContactForm({ addContact }) {
         <div className={css.div}>
           <label htmlFor={nameFieldId}>Name</label>
           <Field className={css.field} type="text" name="name" id={nameFieldId} />
-          <ErrorMessage className={css.error} name="name" as="span" />
+          <ErrorMessage className={css.error} name="name" component="span" />
         </div>
 
         <div className={css.div}>
           <label htmlFor={numberFieldId}>Number</label>
           <Field className={css.field} type="tel" name="number" id={numberFieldId} />
-          <ErrorMessage name="number" as="span" className={css.error} />
+          <ErrorMessage className={css.error} name="number" component="span" />
         </div>
 
         <button className={css.btn} type="submit">
-          <IoMdPersonAdd />
+          <IoMdPersonAdd className={css.svg} />
           Add contact
         </button>
       </Form>

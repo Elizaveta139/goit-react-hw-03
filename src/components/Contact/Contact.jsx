@@ -5,11 +5,11 @@ export default function Contact({ id, name, number, onDelete }) {
   return (
     <div className={css.wrap}>
       <div className={css.infoContacts}>
-        <p>
+        <p className={css.text}>
           <IoIosContact className={css.icon} size="24" />
           {name}
         </p>
-        <p>
+        <p className={css.text}>
           <IoIosCall className={css.icon} size="24" />
           {number}
         </p>

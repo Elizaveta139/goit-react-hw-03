@@ -1,6 +1,5 @@
 import css from './ContactList.module.css';
 import Contact from '../Contact/Contact';
-import { IoIosTrash } from 'react-icons/io';
 
 export default function ContactList({ contacts, onDelete }) {
   return (

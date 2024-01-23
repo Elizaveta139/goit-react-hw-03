@@ -1,32 +1,28 @@
 import { useState, useEffect } from 'react';
 import css from './App.module.css';
-import initialContacts from '../data/contacts.json';
+// import initialContacts from '../data/contacts.json';
 
 import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
 import ContactForm from '../ContactForm/ContactForm';
 
+let initialContacts = [
+  { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+  { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+  { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+  { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+];
+
 export default function App() {
-  const [contacts, setContacts] = useState(initialContacts);
+  const [contacts, setContacts] = useState(() => {
+    const contactsEl = JSON.parse(localStorage.getItem('saved-contacts'));
 
-  // const [contacts, setContacts] = useState(() => {
-  //   const savedContacts = JSON.parse(localStorage.getItem('saved-contacts'));
-  //   console.log(savedContacts.contacts);
-  // console.log('setContacts', setContacts);
-
-  // if (savedContacts) {
-  //   let initialValue = savedContacts.contacts;
-  //   setContacts(initialValue);
-  // }
-
-  // if (savedContacts) {
-  //   let initialValue = savedContacts.contacts;
-  //   return {
-  //     id: initialValue.id,
-  //     name: initialValue.name,
-  //     number: initialValue.number,
-  //   };
-  // }
+    // return initialContacts;
+    if (contactsEl) {
+      const parsedContacts = contactsEl.contacts;
+      return (initialContacts = parsedContacts);
+    }
+  });
 
   const [filter, setFilter] = useState('');
 
@@ -48,14 +44,6 @@ export default function App() {
     setContacts([...contacts, newContact]);
   }
 
-  // useEffect(() => {
-  //   const storedContacts = JSON.parse(localStorage.getItem('saved-contacts'));
-  //   if (storedContacts) {
-  //     setContacts(storedContacts.contacts);
-  //   }
-  //   console.log(storedContacts.contacts);
-  // }, []);
-
   useEffect(() => {
     window.localStorage.setItem('saved-contacts', JSON.stringify({ contacts }));
   }, [contacts]);
@@ -66,6 +54,7 @@ export default function App() {
     <div>
       <h1 className={css.title}>Phonebook</h1>
       <ContactForm addContact={addContact} />
+      {/* <h2 className={css.title}>Contacts</h2> */}
       <SearchBox value={filter} onChange={handleChangeFilter} />
       <ContactList contacts={filteredContacts} onDelete={deleteContacts} />
     </div>

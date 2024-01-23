@@ -1,22 +1,42 @@
 .wrap {
   width: 400px;
   height: 90px;
-  padding: 10px;
+  padding: 15px;
   border: 1px solid #000;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: rgb(255, 255, 255, 0.6);
 }
 
 .infoContacts {
 }
 
+.text {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.text:last-child {
+  margin-bottom: 0;
+}
+
 .btn {
   height: 40px;
   cursor: pointer;
-}
+  font-weight: bold;
 
-.icon {
-  margin-right: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-color: #fff;
 }
