@@ -14,6 +14,7 @@ let initialContacts = [
 ];
 
 export default function App() {
+  // const [contacts, setContacts] = useState(initialContacts);
   const [contacts, setContacts] = useState(() => {
     const contactsEl = JSON.parse(localStorage.getItem('saved-contacts'));
 
@@ -22,6 +23,7 @@ export default function App() {
       const parsedContacts = contactsEl.contacts;
       return (initialContacts = parsedContacts);
     }
+    return;
   });
 
   const [filter, setFilter] = useState('');
@@ -43,6 +45,16 @@ export default function App() {
   function addContact(newContact) {
     setContacts([...contacts, newContact]);
   }
+
+  // useEffect(() => {
+  //   const contactsEl = JSON.parse(localStorage.getItem('saved-contacts'));
+
+  //   // return initialContacts;
+  //   if (contactsEl) {
+  //     const parsedContacts = contactsEl.contacts;
+  //     setContacts(parsedContacts);
+  //   }
+  // }, []);
 
   useEffect(() => {
     window.localStorage.setItem('saved-contacts', JSON.stringify({ contacts }));
