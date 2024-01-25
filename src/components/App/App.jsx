@@ -37,12 +37,24 @@ export default function App() {
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
   }
 
+  // function deleteContacts(contactId) {
+  //   setContacts(contacts.filter(contact => contact.id !== contactId));
+  // }
+
   function deleteContacts(contactId) {
-    setContacts(contacts.filter(contact => contact.id !== contactId));
+    setContacts(prevContacts => {
+      return prevContacts.filter(contact => contact.id !== contactId);
+    });
   }
 
+  // function addContact(newContact) {
+  //   setContacts([...contacts, newContact]);
+  // }
+
   function addContact(newContact) {
-    setContacts([...contacts, newContact]);
+    setContacts(prevContacts => {
+      return [...prevContacts, newContact];
+    });
   }
 
   useEffect(() => {
